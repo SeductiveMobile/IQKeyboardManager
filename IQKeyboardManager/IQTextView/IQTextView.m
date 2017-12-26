@@ -39,9 +39,11 @@
 }
 
 @synthesize placeholder = _placeholder;
+@synthesize placeholderColor = _placeholderColor;
 
 -(void)initialize
 {
+    self.placeholderColor = [UIColor colorWithWhite:0.7 alpha:1.0];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshPlaceholder) name:UITextViewTextDidChangeNotification object:self];
 }
 
@@ -130,13 +132,19 @@
         placeHolderLabel.font = self.font;
         placeHolderLabel.textAlignment = self.textAlignment;
         placeHolderLabel.backgroundColor = [UIColor clearColor];
-        placeHolderLabel.textColor = [UIColor colorWithWhite:0.7 alpha:1.0];
+        placeHolderLabel.textColor = self.placeholderColor;
         placeHolderLabel.alpha = 0;
         [self addSubview:placeHolderLabel];
     }
     
     placeHolderLabel.text = self.placeholder;
     [self refreshPlaceholder];
+}
+
+-(void)setPlaceholderColor:(UIColor *)placeholderColor
+{
+    _placeholderColor = placeholderColor;
+    placeHolderLabel.textColor = placeholderColor;
 }
 
 //When any text changes on textField, the delegate getter is called. At this time we refresh the textView's placeholder
