@@ -33,8 +33,8 @@
 /**
  Set textView's placeholder text. Default is nil.
  */
-@property(nullable, nonatomic,copy) IBInspectable NSString *placeholder;
 @property(nullable, nonatomic,copy) IBInspectable UIColor *placeholderColor;
+@property(nullable, nonatomic,copy) IBInspectable NSString *placeholder;
 
 @end
 
