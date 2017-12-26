@@ -150,7 +150,7 @@
     if (_placeholderColor == nil) {
         _placeholderColor = [UIColor colorWithWhite:0.7 alpha:1.0];
     }
-    return _placeholderColor
+    return _placeholderColor;
 }
 
 //When any text changes on textField, the delegate getter is called. At this time we refresh the textView's placeholder
